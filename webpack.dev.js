@@ -4,9 +4,6 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const webpack = require('webpack');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-
-
 
 module.exports = {
     mode: 'development',
@@ -44,7 +41,6 @@ module.exports = {
             hash: true,
             filename: './index.html',
             template: './src/client/index.html'
-        }),
-        new WorkboxPlugin.GenerateSW()
+        })
     ]
 }

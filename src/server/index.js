@@ -3,7 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const fetch = require('node-fetch');
+dotenv.config();
+//const fetch = require('node-fetch');
 var path = require("path");
 const app = express();
 
@@ -28,7 +29,7 @@ app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static("../src"));
-console.log(__dirname);
+//console.log(__dirname);
 
 // Spin up the server
 const port = 3030;
@@ -38,32 +39,32 @@ const server = app.listen(port, listening);
 
 function listening() {
     console.log(`the port of this server is ${port}`);
-    console.log(`Your API key is ${process.env.API_KEY}`);
+    console.log(`Your API key is ${process.env.WEATHER_API_KEY}`);
 }
-app.post("/test", function(req, res) {
+app.post("/test", function (req, res) {
     departtime = req.body.departtime;
     nowtime = req.body.nowtime;
     inputCity = req.body.city;
     duration = req.body.duration;
     future = req.body.future
     getCoordinates(inputCity)
-        .then(data => getWeather(lng, lat))
-        .then(function(data) {
-            issumary = data[0];
-            istemperature = data[1];
-            console.log(issumary, istemperature)
+        .then(data => getWeather(data[0], data[1]))
+        .then(function (data) {
+            wsumary = data[0];
+            wtemperature = data[1];
+            console.log(wtemperature, wsumary)
         })
-        .then(data => getCityImage(inputCity))
-        .then(function(data) {
-            imageurl = data;
-        })
-    console.log(req.body.formText),
-        getCityInfo = req.body.formText,
-        function(error, res) {
-            if (error === null) {
-                console.log(res)
-                res.send(res);
-            }
-            console.log(error);
-        }
+    //     .then(data => getCityImage(inputCity))
+    //     .then(function (data) {
+    //         imageurl = data;
+    //     })
+    // console.log(req.body.formText),
+    //     getCityInfo = req.body.formText,
+    //     function (error, res) {
+    //         if (error === null) {
+    //             console.log(res)
+    //             res.send(res);
+    //         }
+    //         console.log(error);
+    //     }
 });

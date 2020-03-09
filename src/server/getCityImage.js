@@ -1,4 +1,8 @@
 async function getCityImage(yourcity) {
+    const fetch = require('node-fetch');
+    const dotenv = require("dotenv");
+    // require('dotenv').config();
+    dotenv.config();
     const API_KEY = process.env.IMAGE_API_KEY;
     const URL = process.env.IMAGE_URL
 
