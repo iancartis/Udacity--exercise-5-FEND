@@ -36,33 +36,17 @@
 
 
         </section>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                    console.log('service worker working');
+                });
+            }
+        </script>
 
-        <!-- <section>
-            <button class="save">save trip</button>
-            <button class="remove">remove trip</button>
-            <section class="my_trips">
-                <div class="header">
-                    <h2>My trips:</h2>
-                    <button class="add_trip">add trip</button>
-                </div>
-                <div class="col_left">
-                    <img src="" alt="">
-                    <button class="lodging_info">add lodging info</button>
-                    <button class="packing_list">add packing list</button>
-                    <button class="add_notes">add notes</button>
-                </div>
-                <div class="col_right">
-                    <div class="location">My trip to:</h2>
-                        <div class="departing">
-                            </h3>
-                            <div class="flight_info"></div>
-                            <button class="save_trip">save trip</button>
-                            <button class="remove_trip">remove trip</button>
-                            <div class="weather_info">Typical weather for then is:</div>
-
-                        </div>
-
-            </section> -->
     </main>
 
     <footer>
