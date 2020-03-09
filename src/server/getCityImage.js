@@ -1,6 +1,6 @@
 async function getCityImage(yourcity) {
-    const API_KEY = '15305007-26873b5ed34449aa9669f1099';
-    const URL = 'https://pixabay.com/api/?key='
+    const API_KEY = process.env.IMAGE_API_KEY;
+    const URL = process.env.IMAGE_URL
 
     const fetch = require('node-fetch');
     const res = await fetch(`${URL}${$API_KEY}&q=${city}`);

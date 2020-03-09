@@ -1,7 +1,10 @@
 //Connect API City info
 const fetch = require('node-fetch');
-const baseURL = "https://api.darksky.net/forecast/";
-const API_KEY = "2c85353c4c9c765107ba2b61cdf62cd9";
+// require('dotenv').config();
+dotenv.config();
+
+const baseURL = process.env.WEATHER_URL;
+const API_KEY = process.env.WEATHER_API_KEY;
 
 async function getWeather(lng, lat) {
     const res = await fetch(`${baseURL}${API_KEY}/${lng},${lat}`)

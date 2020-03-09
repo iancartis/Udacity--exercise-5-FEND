@@ -1,6 +1,6 @@
 //Connect API City info
-const baseURL = "http://api.geonames.org/searchJSON?q=";
-const userName = "iancartis";
+const baseURL = process.env.baseURL
+const userName = process.env.userName
 const fetch = require('node-fetch');
 
 async function getCoordinates(yourcity) {

@@ -14,8 +14,6 @@ const getCityImage = require('./getCityImage');
 
 
 
-// require('dotenv').config();
-dotenv.config();
 
 
 //Here we are configuring express to use body-parser as middle-ware.
@@ -27,7 +25,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cors());
-//app.set('view engine', 'ejs')
 
 // Initialize the main project folder
 app.use(express.static("../src"));
@@ -36,10 +33,6 @@ console.log(__dirname);
 // Spin up the server
 const port = 3030;
 const server = app.listen(port, listening);
-
-
-
-
 
 
 
@@ -60,7 +53,7 @@ app.post("/test", function(req, res) {
             istemperature = data[1];
             console.log(issumary, istemperature)
         })
-        .then(data => getImage(inputCity))
+        .then(data => getCityImage(inputCity))
         .then(function(data) {
             imageurl = data;
         })

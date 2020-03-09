@@ -1,34 +1,21 @@
 //Geoname API fetch
 
+const getInfoUI = async() => {
+    const result = await fetch("/test")
+    const myData = await result.json();
+    console.log(myData);
+    document.getElementById('image').innerHTML = `<img src="${imageurl}">`
+    document.getElementById('start_date').innerHTML = `Your trip to ${inputCity} will start in ${departtime} days`
+    document.getElementById('duration').innerHTML = `The temperature in ${inputCity} will be ${temperature}`
+        // document.getElementById('summary').innerHTML = `Weather summary </br> `
 
 
-document.getElementById("submit").addEventListener("click", function(event) {
-    event.preventDefault()
-});
-let button = document.getElementById('submit');
+    // return myData;
+}
+export {
+    getInfoUI
+}
 
-
-
-const formText = button.addEventListener('click', function() {
-    const yourcity = document.getElementById('destination').value;
-    const departTime = document.getElementById('departure').value;
-    const arrivalDate = document.getElementById('arrival').value;
-    console.log([yourcity, departTime, arrivalDate]);
-    return [yourcity, departTime, arrivalDate];
-});
-
-fetch('http://localhost:3030/test', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formText)
-    })
-    .then(res => res.json())
-    .then(function(response) {
-        console.log(response);
-
-    });
 
 
 
